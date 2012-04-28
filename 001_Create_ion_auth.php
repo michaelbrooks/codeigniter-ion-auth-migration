@@ -11,6 +11,8 @@ class Migration_Create_ion_auth extends	CI_Migration {
 	private $groups_join	= 'group_id';
 	private $users_join		= 'user_id';
 	
+    private $user_identity = 'email';
+    
 	private function use_config() 
 	{
 		/*
@@ -28,6 +30,8 @@ class Migration_Create_ion_auth extends	CI_Migration {
 			// join names                          
 			$this->groups_join	= $joins['groups'];
 			$this->users_join	= $joins['users'];
+            
+            $this->user_identity = $this->config->item('identity', 'ion_auth');
 		}
 
 	}
@@ -66,7 +70,7 @@ class Migration_Create_ion_auth extends	CI_Migration {
 		{	
 			// Setup Keys
 			$this->dbforge->add_key('id', TRUE);
-			
+			$this->dbforge->add_key($this->user_identity);
 			$this->dbforge->add_field(array(
 				'id' => array('type' => 'MEDIUMINT', 'constraint' => 8, 'unsigned' => TRUE, 'null' => FALSE, 'auto_increment' => TRUE),
 				'ip_address' => array('type' => 'CHAR', 'constraint' => '16', 'null' => FALSE),
