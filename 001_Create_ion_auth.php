@@ -30,8 +30,8 @@ class Migration_Create_ion_auth extends	CI_Migration {
 			// join names                          
 			$this->groups_join	= $joins['groups'];
 			$this->users_join	= $joins['users'];
-            
-            $this->user_identity = $this->config->item('identity', 'ion_auth');
+			
+			$this->user_identity = $this->config->item('identity', 'ion_auth');
 		}
 
 	}
@@ -75,7 +75,7 @@ class Migration_Create_ion_auth extends	CI_Migration {
 				'id' => array('type' => 'MEDIUMINT', 'constraint' => 8, 'unsigned' => TRUE, 'null' => FALSE, 'auto_increment' => TRUE),
 				'ip_address' => array('type' => 'CHAR', 'constraint' => '16', 'null' => FALSE),
 				'username' => array('type' => 'VARCHAR', 'constraint' => '100', 'null' => FALSE),
-				'password' => array('type' => 'VARCHAR', 'constraint' => '40', 'null' => FALSE),
+				'password' => array('type' => 'VARCHAR', 'constraint' => '80', 'null' => FALSE),
 				'salt' => array('type' => 'VARCHAR', 'constraint' => '40', 'null' => TRUE),
 				'email' => array('type' => 'VARCHAR', 'constraint' => '100', 'null' => FALSE),
 				'activation_code' => array('type' => 'VARCHAR', 'constraint' => '40', 'null' => TRUE),
@@ -97,8 +97,8 @@ class Migration_Create_ion_auth extends	CI_Migration {
 			$data = array(
 				'ip_address'=>'127.0.0.1',
 				'username'=>'administrator',
-				'password'=>'59beecdf7fc966e2f17fd8f65a4a9aeb09d4a3d4',
-				'salt'=>'9462e8eee0',
+				'password'=>'$2a$07$BbF2.Yw742I36cSwFbEaPe3kcVBxEsaygaNc6KAB6sJ0cilsqW9RW',
+				'salt'=>NULL,
 				'email'=>'admin@admin.com',
 				'activation_code'=>'',
 				'forgotten_password_code'=>NULL,
